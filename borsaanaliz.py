@@ -1,10 +1,13 @@
-import yfinance as yf
+
 import datetime
 from datetime import date
-from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_absolute_error
+from sklearn.preprocessing import StandardScaler
+
+import yfinance as yf
+
 
 def veri_indir(hisse, baslangic_tarihi, bitis_tarihi):
     df = yf.download(hisse, start=baslangic_tarihi, end=bitis_tarihi, progress=False)
@@ -32,7 +35,7 @@ def model_calistir(model, gun_sayisi):
         gun += 1
 
 # Parametreler
-hisse = "HISSEADI.IS"
+hisse = "ASELS.IS"
 bugun = datetime.date.today()
 sure = 3000
 once = bugun - datetime.timedelta(days=sure)
